@@ -195,8 +195,12 @@ export default function Home({ players }) {
             <CheckboxFilter
                 handleFilters={(filters) => handleFilters(filters, "positions")}
             />
-            {data.map((player) => (
-                <PlayerCard playerCard={player} key={player.player_id} />
+            {data.map((player, idx) => (
+                <PlayerCard
+                    playerCard={player}
+                    key={player.player_id}
+                    idx={idx}
+                />
             ))}
         </div>
     );

@@ -25,13 +25,16 @@ export type CardProps = {
     receiving_tds: number;
 };
 
-const PlayerCard: React.FC<{ playerCard: CardProps }> = ({ playerCard }) => {
+const PlayerCard: React.FC<{ playerCard: CardProps }> = ({
+    playerCard,
+    idx,
+}) => {
     return (
         <div className={styles.playerCard}>
             <div className={styles.topBar}>
                 <div className={styles.cardRank}>
                     <div className="rank-label">Rank</div>
-                    <div className="rank-body">1</div>
+                    <div className="rank-body">{idx + 1}</div>
                 </div>
                 <div className={styles.bio}>
                     <div className={styles.imgContainer}>
