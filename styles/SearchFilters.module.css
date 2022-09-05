@@ -1,0 +1,12 @@
+.searchFiltersContainter {
+    margin: 2vh;
+    display: flex;
+    gap: 5%;
+}
+
+.searchBar {
+    border-radius: 0.5em;
+    padding: 1% 2%;
+    outline: none;
+    width: 20vw;
+}

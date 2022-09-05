@@ -1,0 +1,136 @@
+.playerCard {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #292929;
+    margin-top: 2.5%;
+    border-radius: 1.5vw;
+    max-width: 1000px;
+    align-self: center;
+}
+
+.topBar {
+    display: grid;
+    width: calc(100% - 4%);
+    height: 20%;
+    align-items: center;
+    padding: 0 2%;
+    border-bottom: 1px solid grey;
+}
+
+.tag {
+    border: 1px solid #494949;
+    background-color: #393939;
+    padding: 1% 4%;
+    border-radius: 0.5em;
+}
+
+.bio {
+    grid-row: 1;
+    grid-column: 2 / 8;
+    display: flex;
+    align-items: center;
+}
+
+.cardRank {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+}
+
+.nameContainer {
+    align-self: center;
+}
+
+.imgContainer {
+    height: 100%;
+}
+
+.playerAvatar {
+    height: 6em;
+    width: auto;
+}
+
+.playerAvatar img {
+    height: 50%;
+    align-self: center;
+}
+
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    font-family: "Sarabun", sans-serif;
+}
+
+.firstName {
+    font-size: 0.8em;
+    color: #898989;
+}
+
+.lastName {
+    font-size: 2em;
+    color: #fff;
+    width: 27vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tags {
+    grid-row: 1;
+    grid-column: 8;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: flex-end;
+}
+
+.stats {
+    display: flex;
+    gap: 5%;
+}
+
+.cardBottom {
+    padding: 2% 4%;
+    max-width: 800px;
+    width: 96%;
+    display: flex;
+    gap: 2%;
+    justify-content: space-around;
+}
+
+.statContainter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.statItem {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.statHeader {
+    color: #898989;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.stats {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}

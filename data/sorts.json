@@ -1,0 +1,62 @@
+[
+    {
+        "_id": 0,
+        "value": "passing-yards-desc",
+        "string_label": "Passing Yards (Highest First)"
+    },
+    {
+        "_id": 1,
+        "value": "passing-yards-asc",
+        "string_label": "Passing Yards (Lowest First)"
+    },
+    {
+        "_id": 2,
+        "value": "passing-tds-desc",
+        "string_label": "Passing Touchdowns (Highest First)"
+    },
+    {
+        "_id": 3,
+        "value": "passing-tds-asc",
+        "string_label": "Passing Touchdowns (Lowest First)"
+    },
+    {
+        "_id": 4,
+        "value": "rushing-yards-desc",
+        "string_label": "Rushing Yards (Highest First)"
+    },
+    {
+        "_id": 5,
+        "value": "rushing-yards-asc",
+        "string_label": "Rushing Yards (Lowest First)"
+    },
+    {
+        "_id": 6,
+        "value": "rushing-tds-desc",
+        "string_label": "Rushing Touchdowns (Highest First)"
+    },
+    {
+        "_id": 7,
+        "value": "rushing-tds-asc",
+        "string_label": "Rushing Touchdowns (Lowest First)"
+    },
+    {
+        "_id": 8,
+        "value": "receiving-yards-desc",
+        "string_label": "Receiving Yards (Highest First)"
+    },
+    {
+        "_id": 9,
+        "value": "receiving-yards-asc",
+        "string_label": "Receiving Yards (Lowest First)"
+    },
+    {
+        "_id": 10,
+        "value": "receiving-tds-desc",
+        "string_label": "Receiving Touchdowns (Highest First)"
+    },
+    {
+        "_id": 11,
+        "value": "receiving-tds-asc",
+        "string_label": "Receiving Touchdowns (Lowest First)"
+    }
+]

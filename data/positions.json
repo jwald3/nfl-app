@@ -1,0 +1,22 @@
+[
+    {
+        "_id": 0,
+        "abbrev": "QB",
+        "full": "Quarterback"
+    },
+    {
+        "_id": 1,
+        "abbrev": "RB",
+        "full": "Runningback"
+    },
+    {
+        "_id": 2,
+        "abbrev": "WR",
+        "full": "Wide Receiver"
+    },
+    {
+        "_id": 3,
+        "abbrev": "TE",
+        "full": "Tight End"
+    }
+]

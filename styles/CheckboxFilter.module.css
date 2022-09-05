@@ -1,0 +1,21 @@
+.checkboxBar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+
+.checkboxInputActive {
+    border: 1px solid green;
+    background-color: #393939;
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+}
+
+.checkboxInputInactive {
+    border: 1px solid red;
+    background-color: #393939;
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+}
