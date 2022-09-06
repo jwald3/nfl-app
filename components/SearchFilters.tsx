@@ -6,13 +6,15 @@ interface SearchProps {
     setSearchInput: Function;
 }
 
-const SearchFilters: React.FC<{ props: SearchProps }> = (props) => {
+const SearchFilters = (props: SearchProps) => {
+    const { setSortMethod, setSearchInput } = props;
+
     const handleSelect = (value: string) => {
-        props.setSortMethod(value);
+        setSortMethod(value);
     };
 
     const handleSearchInput = (value: string) => {
-        props.setSearchInput(value);
+        setSearchInput(value);
     };
 
     return (
