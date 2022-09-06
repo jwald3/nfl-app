@@ -37,6 +37,7 @@
 .cardRank {
     grid-row: 1;
     grid-column: 1;
+    font-family: "Sarabun", sans-serif;
 }
 
 .label {
@@ -125,6 +126,7 @@
     font-size: 0.9em;
     text-align: center;
     margin-bottom: 2%;
+    font-family: "Sarabun", sans-serif;
 }
 
 .stats {
@@ -132,5 +134,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10%;
+    gap: 15%;
 }
