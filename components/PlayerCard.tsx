@@ -58,7 +58,7 @@ const PlayerCard: React.FC<{ playerCard: CardProps; idx: number }> = ({
                             {playerCard.player_name_full.split(" ")[0]}
                         </div>
                         <div className={styles.lastName}>
-                            {playerCard.last_name}
+                            {playerCard.last_name.toUpperCase()}
                         </div>
                     </div>
                 </div>
