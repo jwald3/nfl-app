@@ -1,6 +1,8 @@
+import Image from "next/image";
 import styles from "../styles/PlayerCard.module.css";
 
 export type CardProps = {
+    idx: number;
     player_id: string;
     team: string;
     player_name_abbrev: string;
@@ -25,7 +27,7 @@ export type CardProps = {
     receiving_tds: number;
 };
 
-const PlayerCard: React.FC<{ playerCard: CardProps }> = ({
+const PlayerCard: React.FC<{ playerCard: CardProps; idx: number }> = ({
     playerCard,
     idx,
 }) => {
@@ -38,9 +40,17 @@ const PlayerCard: React.FC<{ playerCard: CardProps }> = ({
                 </div>
                 <div className={styles.bio}>
                     <div className={styles.imgContainer}>
-                        <img
+                        <Image
                             className={styles.playerAvatar}
-                            src={playerCard.headshot_url}
+                            src={
+                                playerCard?.headshot_url !== "0"
+                                    ? playerCard?.headshot_url
+                                    : ""
+                            }
+                            alt={playerCard.player_name_full}
+                            height="100%"
+                            width="100%"
+                            objectFit="cover"
                         />
                     </div>
                     <div className={styles.nameContainer}>
