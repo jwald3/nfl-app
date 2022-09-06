@@ -1,7 +1,12 @@
 import sorts from "../data/sorts.json";
 import styles from "../styles/SearchFilters.module.css";
 
-const SearchFilters: React.FC = (props) => {
+interface SearchProps {
+    setSort: Function;
+    setSearchInput: Function;
+}
+
+const SearchFilters: React.FC<{ props: SearchProps }> = ({ props }) => {
     const handleSelect = (value: string) => {
         props.setSort(value);
     };
@@ -15,6 +20,7 @@ const SearchFilters: React.FC = (props) => {
             <input
                 className={styles.searchBar}
                 type="text"
+                placeholder="Search a player by name"
                 onChange={(e) => handleSearchInput(e.target.value)}
             />
             <select
