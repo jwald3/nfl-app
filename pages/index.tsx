@@ -31,10 +31,14 @@ type Props = {
     players: CardProps[];
 };
 
-export default function Home({ players }) {
+interface SortingInterface {
+    sortingMethod: string;
+}
+
+const Home: NextPage<Props> = ({ players }) => {
     const [data, setData] = useState(players);
-    const [sort, setSort] = useState("passing_yards_desc");
-    const [searchInput, setSearchInput] = useState("");
+    const [sortingMethod, setSortMethod] = useState<string>("");
+    const [searchInput, setSearchInput] = useState<string>("");
     const [filters, setFilters] = useState({
         positions: ["QB", "WR", "TE", "RB"],
     });
@@ -47,7 +51,7 @@ export default function Home({ players }) {
     };
 
     useEffect(() => {
-        sortData(players, sort);
+        sortData(players, sortingMethod);
     }, []);
 
     useEffect(() => {
@@ -59,7 +63,7 @@ export default function Home({ players }) {
         newData = newData.filter(
             (d) => filters.positions.indexOf(d.position) !== -1
         );
-        sortData(newData, sort);
+        sortData(newData, sortingMethod);
     }, [filters]);
 
     useEffect(() => {
@@ -67,10 +71,10 @@ export default function Home({ players }) {
         newData = newData.filter(
             (d) => filters.positions.indexOf(d.position) !== -1
         );
-        sortData(newData, sort);
-    }, [sort]);
+        sortData(newData, sortingMethod);
+    }, [sortingMethod]);
 
-    const filterSearchResults = (datasource) => {
+    const filterSearchResults = (datasource: CardProps[]) => {
         const trimmedQuery = searchInput.trim();
         let newData = [...players];
 
@@ -102,10 +106,10 @@ export default function Home({ players }) {
         newData = newData.filter(
             (d) => filters.positions.indexOf(d.position) !== -1
         );
-        sortData(newData, sort);
+        sortData(newData, sortingMethod);
     }, [searchInput]);
 
-    const sortData = (datasource, sorting: string) => {
+    const sortData = (datasource: CardProps[], sorting: string) => {
         let sorted;
 
         switch (sorting) {
@@ -191,7 +195,10 @@ export default function Home({ players }) {
 
     return (
         <div className={styles.App}>
-            <SearchFilters setSort={setSort} setSearchInput={setSearchInput} />
+            <SearchFilters
+                setSortMethod={setSortMethod}
+                setSearchInput={setSearchInput}
+            />
             <CheckboxFilter
                 handleFilters={(filters) => handleFilters(filters, "positions")}
             />
@@ -204,4 +211,6 @@ export default function Home({ players }) {
             ))}
         </div>
     );
-}
+};
+
+export default Home;
