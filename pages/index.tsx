@@ -39,15 +39,16 @@ const Home: NextPage<Props> = ({ players }) => {
     const [data, setData] = useState(players);
     const [sortingMethod, setSortMethod] = useState<string>("");
     const [searchInput, setSearchInput] = useState<string>("");
-    const [filters, setFilters] = useState({
-        positions: ["QB", "WR", "TE", "RB"],
-    });
+    const [positionFilter, setPositionFilter] = useState([
+        "QB",
+        "WR",
+        "TE",
+        "RB",
+    ]);
 
-    const handleFilters = (filters: [], category: string) => {
-        const newFilters: [] = { ...filters };
-        newFilters[category] = filters;
-
-        setFilters(newFilters);
+    const handleFilters = (filters: []) => {
+        const newFilters: [] = [...filters];
+        setPositionFilter(newFilters);
     };
 
     useEffect(() => {
@@ -61,15 +62,15 @@ const Home: NextPage<Props> = ({ players }) => {
         newData = filterSearchResults(newData);
 
         newData = newData.filter(
-            (d) => filters.positions.indexOf(d.position) !== -1
+            (d) => positionFilter.indexOf(d.position) !== -1
         );
         sortData(newData, sortingMethod);
-    }, [filters]);
+    }, [positionFilter]);
 
     useEffect(() => {
         let newData = filterSearchResults(data);
         newData = newData.filter(
-            (d) => filters.positions.indexOf(d.position) !== -1
+            (d) => positionFilter.indexOf(d.position) !== -1
         );
         sortData(newData, sortingMethod);
     }, [sortingMethod]);
@@ -104,7 +105,7 @@ const Home: NextPage<Props> = ({ players }) => {
     useEffect(() => {
         let newData = filterSearchResults(data);
         newData = newData.filter(
-            (d) => filters.positions.indexOf(d.position) !== -1
+            (d) => positionFilter.indexOf(d.position) !== -1
         );
         sortData(newData, sortingMethod);
     }, [searchInput]);
@@ -199,9 +200,7 @@ const Home: NextPage<Props> = ({ players }) => {
                 setSortMethod={setSortMethod}
                 setSearchInput={setSearchInput}
             />
-            <CheckboxFilter
-                handleFilters={(filters) => handleFilters(filters, "positions")}
-            />
+            <CheckboxFilter handleFilters={handleFilters} />
             {data.map((player, idx) => (
                 <PlayerCard
                     playerCard={player}
