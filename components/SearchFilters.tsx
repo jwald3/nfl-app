@@ -22,6 +22,7 @@ const SearchFilters = (props: SearchProps) => {
             <input
                 className={styles.searchBar}
                 type="text"
+                placeholder="Search a player by name..."
                 onChange={(e) => handleSearchInput(e.target.value)}
             />
             <select
