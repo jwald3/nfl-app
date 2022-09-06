@@ -3,10 +3,14 @@ import positions from "../data/positions.json";
 
 import styles from "../styles/CheckboxFilter.module.css";
 
-const Checkbox = (props) => {
+interface CheckboxProps {
+    handleFilters: Function;
+}
+
+const Checkbox = (props: CheckboxProps) => {
     const [checked, setChecked] = useState(["QB", "RB", "WR", "TE"]);
 
-    const handleToggle = (value) => {
+    const handleToggle = (value: string) => {
         const currentIndex = checked.indexOf(value); // will find index or return -1 if not found
         const newChecked = [...checked]; // array needs to be changed then assigned via new var
 
@@ -20,23 +24,6 @@ const Checkbox = (props) => {
         props.handleFilters(newChecked);
     };
 
-    // return (
-    //     <div className={styles.checkboxBar}>
-    //         {positions.map((val, idx) => (
-    //             <div className={styles.checkboxGroup} key={idx}>
-    //                 <input
-    //                     type="checkbox"
-    //                     className={styles.checkboxInput}
-    //                     checked={
-    //                         checked.indexOf(val.abbrev) === -1 ? false : true
-    //                     }
-    //                     onChange={() => handleToggle(val.abbrev)}
-    //                 />
-    //                 <span>{val.abbrev}</span>
-    //             </div>
-    //         ))}
-    //     </div>
-    // );
     return (
         <div className={styles.checkboxBar}>
             {positions.map((val, idx) => (
