@@ -45,7 +45,7 @@ const PlayerCard: React.FC<{ playerCard: CardProps; idx: number }> = ({
                             src={
                                 playerCard?.headshot_url !== "0"
                                     ? playerCard?.headshot_url
-                                    : ""
+                                    : "https://b.fssta.com/uploads/application/fs-app/default-headshot.vresize.280.280.medium.0.png"
                             }
                             alt={playerCard.player_name_full}
                             height="100%"
