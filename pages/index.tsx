@@ -31,10 +31,6 @@ type Props = {
     players: CardProps[];
 };
 
-interface SortingInterface {
-    sortingMethod: string;
-}
-
 const Home: NextPage<Props> = ({ players }) => {
     const [data, setData] = useState(players);
     const [sortingMethod, setSortMethod] = useState<string>("");
@@ -46,34 +42,12 @@ const Home: NextPage<Props> = ({ players }) => {
         "RB",
     ]);
 
+    // HELPER FUNCTIONS
+
     const handleFilters = (filters: []) => {
         const newFilters: [] = [...filters];
         setPositionFilter(newFilters);
     };
-
-    useEffect(() => {
-        sortData(players, sortingMethod);
-    }, []);
-
-    useEffect(() => {
-        // create copy using spread
-        let newData = [...players];
-
-        newData = filterSearchResults(newData);
-
-        newData = newData.filter(
-            (d) => positionFilter.indexOf(d.position) !== -1
-        );
-        sortData(newData, sortingMethod);
-    }, [positionFilter]);
-
-    useEffect(() => {
-        let newData = filterSearchResults(data);
-        newData = newData.filter(
-            (d) => positionFilter.indexOf(d.position) !== -1
-        );
-        sortData(newData, sortingMethod);
-    }, [sortingMethod]);
 
     const filterSearchResults = (datasource: CardProps[]) => {
         const trimmedQuery = searchInput.trim();
@@ -101,14 +75,6 @@ const Home: NextPage<Props> = ({ players }) => {
 
         return newData;
     };
-
-    useEffect(() => {
-        let newData = filterSearchResults(data);
-        newData = newData.filter(
-            (d) => positionFilter.indexOf(d.position) !== -1
-        );
-        sortData(newData, sortingMethod);
-    }, [searchInput]);
 
     const sortData = (datasource: CardProps[], sorting: string) => {
         let sorted;
@@ -186,13 +152,47 @@ const Home: NextPage<Props> = ({ players }) => {
                 );
                 break;
             default:
-                sorted = [...datasource].sort(
-                    (a, b) => b.passing_yards - a.passing_yards
+                sorted = [...datasource].sort((a, b) =>
+                    a.last_name.localeCompare(b.last_name)
                 );
         }
 
         setData(sorted);
     };
+
+    // USE EFFECTS
+
+    useEffect(() => {
+        sortData(players, sortingMethod);
+    }, []);
+
+    useEffect(() => {
+        // create copy using spread
+        let newData = [...players];
+
+        newData = filterSearchResults(newData);
+
+        newData = newData.filter(
+            (d) => positionFilter.indexOf(d.position) !== -1
+        );
+        sortData(newData, sortingMethod);
+    }, [positionFilter]);
+
+    useEffect(() => {
+        let newData = filterSearchResults(data);
+        newData = newData.filter(
+            (d) => positionFilter.indexOf(d.position) !== -1
+        );
+        sortData(newData, sortingMethod);
+    }, [sortingMethod]);
+
+    useEffect(() => {
+        let newData = filterSearchResults(data);
+        newData = newData.filter(
+            (d) => positionFilter.indexOf(d.position) !== -1
+        );
+        sortData(newData, sortingMethod);
+    }, [searchInput]);
 
     return (
         <div className={styles.App}>
